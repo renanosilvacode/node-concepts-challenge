@@ -40,7 +40,7 @@ app.put("/repositories/:id", (request, response) => {
       url,
       techs,
     }
-
+    repositories[repositoryIndex] = repository;
     return response.json(repository);
   }
   else
