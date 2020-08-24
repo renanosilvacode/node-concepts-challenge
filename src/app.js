@@ -34,11 +34,14 @@ app.put("/repositories/:id", (request, response) => {
   
   if(updatedRepositoryIndex >= 0){
     
-    repositories[updatedRepositoryIndex].title = title;
-    repositories[updatedRepositoryIndex].url = url;
-    repositories[updatedRepositoryIndex].techs = techs;
+    const repository = {
+      ...repositories[repositoryIndex],
+      title,
+      url,
+      techs,
+    }
 
-    return response.json(repositories[updatedRepositoryIndex]);
+    return response.json(repository);
   }
   else
     return response.status(400).send();
